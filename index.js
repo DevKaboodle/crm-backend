@@ -10,13 +10,16 @@ app.use(cors());
 app.use(express.json());
 
 connectDB();
-
+const PORT = process.env.PORT||3003;
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');
+});
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}!`);
 });
 
 module.exports = app; // Required for Vercel
