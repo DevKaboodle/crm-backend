@@ -13,15 +13,13 @@ app.use(express.json());
 
 connectDB();
 
-// Define routes
-//app.use('/api/users', userRoutes);
-//app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// ❌ Remove app.listen() — Vercel does not need it
-
+// Export for Vercel Serverless
 module.exports = app;
-module.exports.handler = serverless({ app }); // ✅ Correct usage for Vercel
+module.exports.handler = serverless(app);

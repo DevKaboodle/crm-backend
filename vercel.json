@@ -12,16 +12,6 @@
       "dest": "index.js"
     }
   ],
-  "rewrites": [
-    {
-      "source": "/api/users/:path*",
-      "destination": "/routes/user.js"
-    },
-    {
-      "source": "/api/products/:path*",
-      "destination": "/routes/product.js"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
