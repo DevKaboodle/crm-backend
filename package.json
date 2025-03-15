@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "vercel-build": "npm install --force && npm run build"
-  },
+    "vercel-build": "npm install --force"
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
