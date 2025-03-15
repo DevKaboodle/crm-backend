@@ -22,4 +22,4 @@ app.get('/', (req, res) => {
 
 // Export for Vercel Serverless
 module.exports = app;
-module.exports.handler = serverless(app);
+module.exports.handler = serverless({app});
