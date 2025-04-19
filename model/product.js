@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema(
   {
-    sku: { type: String, required: true, unique: true, trim: true }, // Unique product code
+    productId :{ type: String, required: true, unique: true, trim: true },
+    sku: { type: String, required: true, unique: true, trim: true }, 
     description: { type: String, required: true, trim: true }, 
     price: { type: Number, required: true }, 
     stock: { type: Number, required: true, min: 0 }, 

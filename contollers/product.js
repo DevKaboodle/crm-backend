@@ -2,7 +2,8 @@ const Product = require('../model/product');
 
 const createProduct = async (req, res) => {
   try {
-    const product = new Product(req.body);
+    const obj={...req.body,productId:generateUniqueCode()};
+    const product = new Product(obj);
     await product.save();
     res.json(product);
   } catch (error) {
@@ -37,6 +38,16 @@ const deleteProduct = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+ const generateUniqueCode = () => {
+  const currentTimestamp = Date.now().toString();
+  const randomValue = Math.random().toString();
+
+  const combinedString = currentTimestamp + randomValue;
+
+  const hash = crypto.createHash("sha256").update(combinedString).digest("hex");
+
+  return hash.substring(0, 10);
 };
 
 module.exports = { createProduct, getProducts, updateProduct, deleteProduct };
