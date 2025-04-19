@@ -1,5 +1,6 @@
 const Product = require('../model/product');
 
+const crypto = require('crypto');
 const createProduct = async (req, res) => {
   try {
     const obj={...req.body,productId:generateUniqueCode()};
